@@ -7,6 +7,7 @@ public class BankSystem {
 
 
     public static void createExample() {
+        accounts = new ArrayList<>();
         accounts.add(new Account("Account1", 1000));
         accounts.add(new Account("Account2", 1000));
         accounts.add(new Account("Account3", 1000));
@@ -16,6 +17,7 @@ public class BankSystem {
 
     }
 
+
     public static void print() {
         int totalAmount = 0;
         for (Account account : accounts) {
@@ -24,5 +26,15 @@ public class BankSystem {
 
         }
         System.out.println("There is: " + totalAmount + " there should be: " + amountShouldBe);
+    }
+
+    public static int getCurrent() {
+        int totalAmount = 0;
+        for (Account account : accounts) {
+            totalAmount += account.getAmount();
+        }
+        return totalAmount;
+
+
     }
 }
