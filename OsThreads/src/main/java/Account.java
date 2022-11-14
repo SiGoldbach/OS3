@@ -47,16 +47,16 @@ public class Account implements Runnable {
     }
 
     /**
-     * This is the critical code which needs to be only used the correct time
+     * This is the critical code.
      *
      * @param
-     * @param to
+     * @param AccountToTransferTo
      * @param amount
      */
-    public void transaction(int to, int amount) {
-        System.out.println("Transferring: " + amount + " from: to " + to);
+    public void transaction(int AccountToTransferTo, int amount) {
+        System.out.println("Transferring: " + amount + " from: to " + AccountToTransferTo);
         this.amount = this.amount - amount;
-        BankSystem.accounts.get(to).setAmount(this.amount + amount);
+        BankSystem.accounts.get(AccountToTransferTo).setAmount(this.amount + amount);
 
     }
 
