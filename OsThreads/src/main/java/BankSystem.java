@@ -3,6 +3,7 @@ import java.util.List;
 
 public class BankSystem {
     public static List<Account> accounts = new ArrayList<>();
+    public static int amountShouldBe = 0;
 
 
     public static void createExample() {
@@ -11,13 +12,17 @@ public class BankSystem {
         accounts.add(new Account("Account3", 1000));
         accounts.add(new Account("Account4", 1000));
         accounts.add(new Account("Account5", 1000));
+        amountShouldBe = 5000;
 
     }
 
     public static void print() {
-        for (int i = 0; i < accounts.size(); i++) {
-            System.out.println(accounts.get(i).getId() + " has: " + accounts.get(i).getAmount());
+        int totalAmount = 0;
+        for (Account account : accounts) {
+            System.out.println(account.getId() + " has: " + account.getAmount());
+            totalAmount += account.getAmount();
 
         }
+        System.out.println("There is: " + totalAmount + " there should be: " + amountShouldBe);
     }
 }

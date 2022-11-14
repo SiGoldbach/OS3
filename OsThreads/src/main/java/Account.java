@@ -48,7 +48,7 @@ public class Account implements Runnable {
     }
 
     public void transaction(int from, int to, int amount) {
-        System.out.println("Transferring from: "+from+" to "+to);
+        System.out.println("Transferring: " + amount + " from: " + from + " to " + to);
         BankSystem.accounts.get(from).setAmount(this.amount - amount);
         BankSystem.accounts.get(to).setAmount(this.amount + amount);
 
