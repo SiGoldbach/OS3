@@ -34,22 +34,28 @@ public class Account implements Runnable {
      */
     @Override
     public void run() {
-        for (int i = 0; i < 500; i++) {
-            int from = new Random().nextInt(BankSystem.accounts.size());
+        for (int i = 0; i < new Random().nextInt(500); i++) {
             int to = new Random().nextInt(BankSystem.accounts.size());
-            if (from == to) {
+            if (this.id.equals(BankSystem.accounts.get(to).id)) {
                 continue;
             }
-            transaction(from, to, new Random().nextInt(50));
+            transaction(to, new Random().nextInt(50));
 
 
         }
 
     }
 
-    public void transaction(int from, int to, int amount) {
-        System.out.println("Transferring: " + amount + " from: " + from + " to " + to);
-        BankSystem.accounts.get(from).setAmount(this.amount - amount);
+    /**
+     * This is the critical code which needs to be only used the correct time
+     *
+     * @param
+     * @param to
+     * @param amount
+     */
+    public void transaction(int to, int amount) {
+        System.out.println("Transferring: " + amount + " from: to " + to);
+        this.amount = this.amount - amount;
         BankSystem.accounts.get(to).setAmount(this.amount + amount);
 
     }
