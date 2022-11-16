@@ -7,13 +7,13 @@ public class BankSystem {
 
 
     public static void createExample() {
+        amountShouldBe = 0;
         accounts = new ArrayList<>();
-        accounts.add(new Account("Account1", 1000));
-        accounts.add(new Account("Account2", 1000));
-        accounts.add(new Account("Account3", 1000));
-        accounts.add(new Account("Account4", 1000));
-        accounts.add(new Account("Account5", 1000));
-        amountShouldBe = 5000;
+        for (int i = 0; i < 5; i++) {
+            accounts.add(new Account("Account: " + i, 1000));
+            amountShouldBe += 1000;
+
+        }
 
     }
 

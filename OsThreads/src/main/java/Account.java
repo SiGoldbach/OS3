@@ -1,7 +1,13 @@
 import java.util.Random;
+import java.util.concurrent.Semaphore;
 
 public class Account implements Runnable {
     private final String id;
+    //Personal semaphore
+    private final Semaphore semaphore = new Semaphore(1);
+    //Semaphore being borrowed
+    public Semaphore semaphoreToBorrow;
+    private Account toTransferAccount;
     private int amount;
 
     public Account(String id, int amount) {
@@ -32,11 +38,27 @@ public class Account implements Runnable {
     public void run() {
         for (int i = 0; i < new Random().nextInt(200) + 100; i++) {
             int to = new Random().nextInt(BankSystem.accounts.size());
+            toTransferAccount = BankSystem.accounts.get(to);
             if (this.id.equals(BankSystem.accounts.get(to).id)) {
                 continue;
             }
+            while (true) {
+                try {
+                    toTransferAccount.semaphore.acquire();
+                    this.semaphore.acquire();
+                    break;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+
+
+                }
+
+
+            }
             try {
-                transaction(to, new Random().nextInt(50));
+                transaction(new Random().nextInt(50));
+                toTransferAccount.semaphore.release();
+                this.semaphore.release();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -49,14 +71,25 @@ public class Account implements Runnable {
     /**
      * This is the critical code. Where there must only be read and written to the same account on time concurrently
      *
-     * @param AccountToTransferTo The account getting the money
-     * @param amount              Amount being transferred from one place to another
+     * @param amount Amount being transferred from one place to another
      */
-    public void transaction(int AccountToTransferTo, int amount) throws InterruptedException {
+    public void transaction(int amount) throws InterruptedException {
         // System.out.println("Transferring: " + amount + " from: to " + AccountToTransferTo);
+        //Removing money from the account
         this.amount = this.amount - amount;
-        Thread.sleep(100);
-        BankSystem.accounts.get(AccountToTransferTo).setAmount(BankSystem.accounts.get(AccountToTransferTo).getAmount() + amount);
+        //Thread.sleep(100);
+        int readValue;
+        //Reading the accounts value from the other account
+        readValue = toTransferAccount.getAmount();
+        try {
+            Thread.sleep(100);
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+
+        }
+        //Writing the new value
+        toTransferAccount.setAmount(readValue + amount);
 
 
     }
