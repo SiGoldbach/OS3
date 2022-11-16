@@ -36,7 +36,7 @@ public class Account implements Runnable {
      */
     @Override
     public void run() {
-        privateLog = new LogStatistics(0, 0, BankSystem.transferAmount);
+        privateLog = new LogStatistics(0, 0, BankSystem.transferAmount,id);
         for (int i = 0; i < BankSystem.transferAmount; i++) {
             int to = new Random().nextInt(BankSystem.accounts.size());
             toTransferAccount = BankSystem.accounts.get(to);

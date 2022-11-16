@@ -1,7 +1,10 @@
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import java.util.Scanner;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -21,7 +24,7 @@ public class LogBuilder {
     public LogBuilder(String logName, int expectedLogs) {
         logs = new ArrayList<>();
         this.expectedLogs = expectedLogs;
-        this.logName = logName;
+        this.logName = logName + ".txt";
 
     }
 
@@ -38,26 +41,30 @@ public class LogBuilder {
         } else {
             System.out.println("Success building log");
         }
-        log = new File(logName + ".txt");
+        log = new File(logName);
         System.out.println(log.getAbsolutePath());
         try {
             if (log.createNewFile()) {
                 System.out.println("Creating file as expected ");
+
+
             } else {
-                String tempLogName;
-                do {
-                    tempLogName = new Random().nextInt(100000) + logName;
-                    System.out.println("Making a new log instead of deleting or replacing anything on a someones pc");
-                    log.renameTo(new File(tempLogName));
-                } while (log.createNewFile());
+                System.out.println("The is already a file at this location: " + log.getAbsolutePath());
+                System.out.println("Press enter ok to continue: ");
+                if (!new Scanner(System.in).nextLine().equals("ok"))
+                    System.exit(0);
+
 
             }
             try {
                 System.out.println("Trying to write ");
                 BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(log));
-                bufferedWriter.write("hat");
-                bufferedWriter.flush();
+                bufferedWriter.write(logger());
+                for (LogStatistics logStatistics : logs) {
+                    bufferedWriter.write(logStatistics.toString());
+                }
                 bufferedWriter.close();
+
             } catch (IOException e) {
                 System.out.println("Cant write to file");
                 e.printStackTrace();
@@ -72,10 +79,26 @@ public class LogBuilder {
 
     }
 
+    //Little comment when building a single log one
     private String logger() {
+        int transfer = 0;
+        int failedTries = 0;
+        int expectedTransfer = 0;
+        int expectedMoneyCirculation = BankSystem.amountShouldBe;
+        for (LogStatistics logStatistics : logs) {
+            transfer += logStatistics.getTransfers();
+            failedTries += logStatistics.getFailedAttempt();
+            expectedTransfer += logStatistics.getExpectedTransfers();
+
+        }
 
 
-        return "Fun stuff has been written to the file ";
+        return "Test with: " + BankSystem.accounts.size() + " Accounts/threads\n" +
+                "With " + BankSystem.transferAmount + " Transfer pr. Account \n" +
+                "Amount of transfer is: " + transfer + " It should be:" + expectedTransfer + "\n" +
+                "Failed tries is: " + failedTries + "\n" +
+                "the ratio of fails to success is: " + ((double) failedTries / (double) transfer) + " Failures pr success.\n" +
+                "The amount money in circulation is: " + BankSystem.getCurrent() + " The expected is: " + expectedMoneyCirculation + "\n";
 
     }
 }

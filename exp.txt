@@ -1,0 +1,606 @@
+Test with: 100 Accounts/threads
+With 50 Transfer pr. Account 
+Amount of transfer is: 5000 It should be:5000
+Failed tries is: 47683
+the ratio of fails to success is: 9.5366 Failures pr success.
+The amount money in circulation is: 100000 The expected is: 100000
+Account: 40
+   Fails: 287
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 5.74
+
+Account: 49
+   Fails: 321
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 6.42
+
+Account: 57
+   Fails: 353
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 7.06
+
+Account: 65
+   Fails: 357
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 7.14
+
+Account: 73
+   Fails: 355
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 7.1
+
+Account: 75
+   Fails: 361
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 7.22
+
+Account: 10
+   Fails: 377
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 7.54
+
+Account: 3
+   Fails: 386
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 7.72
+
+Account: 64
+   Fails: 384
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 7.68
+
+Account: 63
+   Fails: 395
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 7.9
+
+Account: 17
+   Fails: 395
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 7.9
+
+Account: 22
+   Fails: 396
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 7.92
+
+Account: 58
+   Fails: 399
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 7.98
+
+Account: 51
+   Fails: 402
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.04
+
+Account: 33
+   Fails: 403
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.06
+
+Account: 1
+   Fails: 403
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.06
+
+Account: 78
+   Fails: 412
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.24
+
+Account: 69
+   Fails: 413
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.26
+
+Account: 31
+   Fails: 414
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.28
+
+Account: 67
+   Fails: 412
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.24
+
+Account: 9
+   Fails: 419
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.38
+
+Account: 77
+   Fails: 420
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.4
+
+Account: 16
+   Fails: 420
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.4
+
+Account: 98
+   Fails: 417
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.34
+
+Account: 59
+   Fails: 421
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.42
+
+Account: 12
+   Fails: 423
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.46
+
+Account: 88
+   Fails: 420
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.4
+
+Account: 4
+   Fails: 426
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.52
+
+Account: 11
+   Fails: 429
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.58
+
+Account: 55
+   Fails: 436
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.72
+
+Account: 35
+   Fails: 438
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.76
+
+Account: 81
+   Fails: 439
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.78
+
+Account: 86
+   Fails: 445
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.9
+
+Account: 84
+   Fails: 441
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.82
+
+Account: 72
+   Fails: 441
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.82
+
+Account: 66
+   Fails: 449
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 8.98
+
+Account: 25
+   Fails: 452
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.04
+
+Account: 30
+   Fails: 455
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.1
+
+Account: 18
+   Fails: 465
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.3
+
+Account: 79
+   Fails: 466
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.32
+
+Account: 19
+   Fails: 475
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.5
+
+Account: 76
+   Fails: 477
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.54
+
+Account: 71
+   Fails: 477
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.54
+
+Account: 95
+   Fails: 477
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.54
+
+Account: 8
+   Fails: 481
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.62
+
+Account: 96
+   Fails: 489
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.78
+
+Account: 36
+   Fails: 487
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.74
+
+Account: 26
+   Fails: 487
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.74
+
+Account: 44
+   Fails: 493
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.86
+
+Account: 13
+   Fails: 486
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.72
+
+Account: 87
+   Fails: 489
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.78
+
+Account: 82
+   Fails: 493
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.86
+
+Account: 80
+   Fails: 491
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.82
+
+Account: 5
+   Fails: 495
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.9
+
+Account: 34
+   Fails: 494
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.88
+
+Account: 52
+   Fails: 500
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.0
+
+Account: 24
+   Fails: 501
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.02
+
+Account: 46
+   Fails: 501
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.02
+
+Account: 53
+   Fails: 497
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 9.94
+
+Account: 38
+   Fails: 504
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.08
+
+Account: 47
+   Fails: 502
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.04
+
+Account: 6
+   Fails: 501
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.02
+
+Account: 50
+   Fails: 507
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.14
+
+Account: 68
+   Fails: 506
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.12
+
+Account: 39
+   Fails: 515
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.3
+
+Account: 43
+   Fails: 511
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.22
+
+Account: 27
+   Fails: 509
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.18
+
+Account: 15
+   Fails: 516
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.32
+
+Account: 94
+   Fails: 516
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.32
+
+Account: 74
+   Fails: 525
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.5
+
+Account: 70
+   Fails: 523
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.46
+
+Account: 93
+   Fails: 519
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.38
+
+Account: 56
+   Fails: 523
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.46
+
+Account: 23
+   Fails: 522
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.44
+
+Account: 61
+   Fails: 522
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.44
+
+Account: 45
+   Fails: 527
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.54
+
+Account: 83
+   Fails: 534
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.68
+
+Account: 60
+   Fails: 534
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.68
+
+Account: 29
+   Fails: 536
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.72
+
+Account: 41
+   Fails: 543
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.86
+
+Account: 37
+   Fails: 539
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.78
+
+Account: 48
+   Fails: 536
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.72
+
+Account: 0
+   Fails: 531
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.62
+
+Account: 91
+   Fails: 540
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.8
+
+Account: 92
+   Fails: 539
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.78
+
+Account: 2
+   Fails: 544
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.88
+
+Account: 62
+   Fails: 546
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.92
+
+Account: 89
+   Fails: 546
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.92
+
+Account: 32
+   Fails: 544
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 10.88
+
+Account: 99
+   Fails: 558
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 11.16
+
+Account: 54
+   Fails: 557
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 11.14
+
+Account: 90
+   Fails: 557
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 11.14
+
+Account: 97
+   Fails: 558
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 11.16
+
+Account: 85
+   Fails: 558
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 11.16
+
+Account: 28
+   Fails: 568
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 11.36
+
+Account: 21
+   Fails: 577
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 11.54
+
+Account: 14
+   Fails: 579
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 11.58
+
+Account: 20
+   Fails: 583
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 11.66
+
+Account: 42
+   Fails: 589
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 11.78
+
+Account: 7
+   Fails: 602
+   Transfer50
+   ExpectedTransfer: 50
+   Ratio: 12.04
+

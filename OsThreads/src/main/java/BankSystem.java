@@ -22,16 +22,6 @@ public class BankSystem {
     }
 
 
-    public static void print() {
-        int totalAmount = 0;
-        for (Account account : accounts) {
-            System.out.println(account.getId() + " has: " + account.getAmount());
-            totalAmount += account.getAmount();
-
-        }
-        System.out.println("There is: " + totalAmount + " there should be: " + amountShouldBe);
-    }
-
     public static int getCurrent() {
         int totalAmount = 0;
         for (Account account : accounts) {
