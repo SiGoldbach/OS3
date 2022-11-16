@@ -6,7 +6,6 @@ public class Account implements Runnable {
     //Personal semaphore
     private final Semaphore semaphore = new Semaphore(1);
     //Semaphore being borrowed
-    public Semaphore semaphoreToBorrow;
     private Account toTransferAccount;
     private int amount;
 
@@ -36,7 +35,7 @@ public class Account implements Runnable {
      */
     @Override
     public void run() {
-        for (int i = 0; i < new Random().nextInt(200) + 100; i++) {
+        for (int i = 0; i < new Random().nextInt(10) + 5; i++) {
             int to = new Random().nextInt(BankSystem.accounts.size());
             toTransferAccount = BankSystem.accounts.get(to);
             if (this.id.equals(BankSystem.accounts.get(to).id)) {
@@ -44,11 +43,19 @@ public class Account implements Runnable {
             }
             while (true) {
                 try {
-                    toTransferAccount.semaphore.acquire();
-                    this.semaphore.acquire();
-                    break;
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    if (this.semaphore.tryAcquire()) {
+                        if (toTransferAccount.semaphore.tryAcquire()) {
+                            //System.out.println("Going to transact");
+                            break;
+                        } else {
+                            this.semaphore.release();
+                        }
+                    } else {
+                        //  System.out.println("Going again");
+                    }
+                } catch (Exception e) {
+                    //e.printStackTrace();
+                    System.out.println("Was busy");
 
 
                 }
@@ -57,8 +64,11 @@ public class Account implements Runnable {
             }
             try {
                 transaction(new Random().nextInt(50));
+                //Releasing the semaphores after they have been used.
                 toTransferAccount.semaphore.release();
                 this.semaphore.release();
+                //  System.out.println(semaphore.availablePermits());
+                //  System.out.println("After transact");
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -76,7 +86,7 @@ public class Account implements Runnable {
     public void transaction(int amount) throws InterruptedException {
         // System.out.println("Transferring: " + amount + " from: to " + AccountToTransferTo);
         //Removing money from the account
-        this.amount = this.amount - amount;
+        int currentVal = this.amount;
         //Thread.sleep(100);
         int readValue;
         //Reading the accounts value from the other account
@@ -90,6 +100,7 @@ public class Account implements Runnable {
         }
         //Writing the new value
         toTransferAccount.setAmount(readValue + amount);
+        this.amount = currentVal - amount;
 
 
     }
