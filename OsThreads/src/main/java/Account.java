@@ -2,6 +2,7 @@ import java.util.Random;
 import java.util.concurrent.Semaphore;
 
 public class Account implements Runnable {
+    private LogStatistics privateLog;
     private final String id;
     //Personal semaphore
     private final Semaphore semaphore = new Semaphore(1);
@@ -35,11 +36,14 @@ public class Account implements Runnable {
      */
     @Override
     public void run() {
-        for (int i = 0; i < new Random().nextInt(10) + 5; i++) {
+        privateLog = new LogStatistics(0, 0, BankSystem.transferAmount);
+        for (int i = 0; i < BankSystem.transferAmount; i++) {
             int to = new Random().nextInt(BankSystem.accounts.size());
             toTransferAccount = BankSystem.accounts.get(to);
             if (this.id.equals(BankSystem.accounts.get(to).id)) {
+                i--;
                 continue;
+
             }
             while (true) {
                 try {
@@ -49,10 +53,14 @@ public class Account implements Runnable {
                             break;
                         } else {
                             this.semaphore.release();
+                            privateLog.addFail();
                         }
                     } else {
+                        privateLog.addFail();
                         //  System.out.println("Going again");
                     }
+                    //In the rapport in the section about problems this thread is commented out at first.
+                    Thread.sleep(1);
                 } catch (Exception e) {
                     //e.printStackTrace();
                     System.out.println("Was busy");
@@ -75,6 +83,18 @@ public class Account implements Runnable {
 
 
         }
+        //This is the printer printing the log getting removed in the second experiment.
+        // privateLog.printStatus(this.id);
+
+        //  privateLog.printStatus(this.id);
+        try {
+            //Building logs one at a time.
+            BankSystem.logBuilder.logSemaphore.acquire();
+            BankSystem.logBuilder.addLog(privateLog);
+            BankSystem.logBuilder.logSemaphore.release();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
@@ -92,7 +112,7 @@ public class Account implements Runnable {
         //Reading the accounts value from the other account
         readValue = toTransferAccount.getAmount();
         try {
-            Thread.sleep(100);
+            Thread.sleep(10);
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -101,6 +121,7 @@ public class Account implements Runnable {
         //Writing the new value
         toTransferAccount.setAmount(readValue + amount);
         this.amount = currentVal - amount;
+        privateLog.addSuccess();
 
 
     }
